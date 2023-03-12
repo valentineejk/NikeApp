@@ -6,6 +6,7 @@ const ProductsScreen = () => {
     return (
         <View>
             <FlatList
+            showsVerticalScrollIndicator="false"
                 numColumns={ 2 }
                 data={ products }
                 renderItem={ ({ item }) => (
