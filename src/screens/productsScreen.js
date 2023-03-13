@@ -1,8 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, FlatList } from 'react-native';
+import { StyleSheet, Text, View, Image, FlatList, Pressable } from 'react-native';
 import products from "../data/products";
+import Navigation from '../navigation';
 
-const ProductsScreen = () => {
+const ProductsScreen = ({ navigation }) => {
     return (
         <View>
             <FlatList
@@ -10,7 +11,7 @@ const ProductsScreen = () => {
                 numColumns={ 2 }
                 data={ products }
                 renderItem={ ({ item }) => (
-                    <View style={ styles.imageCn }>
+                    <Pressable onPress={ () => navigation.navigate('Product Details')} style={ styles.imageCn }>
                         <Image
 
                             source={ {
@@ -18,7 +19,7 @@ const ProductsScreen = () => {
                             } }
                             style={ styles.image }
                         />
-                    </View>
+                    </Pressable>
 
                 ) }
             />
