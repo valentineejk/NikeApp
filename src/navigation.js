@@ -9,18 +9,25 @@ import { FontAwesome5 } from '@expo/vector-icons'
 
 const Stack = createNativeStackNavigator();
 
-const Navigation = ({ navigation }) => {
+const Navigation = () => {
     return (
         <NavigationContainer>
-            <Stack.Navigator>
-                <Stack.Screen name="Products" component={ ProductsScreen } options={ {
-                    headerRight: () => <Pressable
-                    style={{flexDirection: 'row', }}
-                     onPress={ () => navigation.navigate('Cart') } >
-                        <FontAwesome5 name="shopping-cart" color="gray" size={18}/>
-                        <Text style={ { fontWeight: '500', marginLeft: 5,} }>1</Text>
+            <Stack.Navigator
+            screenOptions={{contentStyle: {backgroundColor: 'white'}}}
+            >
+                <Stack.Screen
+                    name="Products"
+                    component={ ProductsScreen }
+                    options={ ({ navigation }) => ({
+                        headerRight: () => (
+                        <Pressable
+                            style={ { flexDirection: 'row', } }
+                            onPress={ () => navigation.navigate('Cart') } >
+                            <FontAwesome5 name="shopping-cart" color="gray" size={ 18 } />
+                            <Text style={ { fontWeight: '500', marginLeft: 5, } }>1</Text>
                         </Pressable>
-                } } />
+                        )
+                    }) } />
                 <Stack.Screen name="Product Details" component={ ProductDetailsScreen } options={ {
                     presentation: 'modal'
                 } } />

@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, FlatList, Pressable } from 'react-native';
 import products from "../data/products";
-import Navigation from '../navigation';
 
 const ProductsScreen = ({ navigation }) => {
     return (
